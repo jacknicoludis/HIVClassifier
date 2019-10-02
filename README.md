@@ -11,7 +11,7 @@ Project files can be found in the **project_files** directory. To run the Classi
 
 **Note:** This project was designed to run output files from HiMAP and use labels from a metadata file called HIV_acquisition_metadata.csv. To adjust for new datasets, one should carefully look at the file format of the osu_abundances.txt and osu_taxonomy.txt files as well as the metadata file to adjust accordingly. Further details on file format for input files can be found in **join_and_normalize.ipynb**.
 
-[Project slides can be found here](bit.ly/HIVClassifier).
+[Project slides can be found here](https://docs.google.com/presentation/d/1UP908EJqk5WD5XU99uxpahnpLAGg9AXD-Qj_7fn7iZY/edit?usp=sharing).
 
 # Project Overview
 
