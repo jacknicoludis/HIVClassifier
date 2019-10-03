@@ -31,16 +31,16 @@ The goal of microbiome profiling is to determine the composition of the microbes
 The data set used in this project was from in ["Evolution of the gut microbiome following acute HIV-1 infection,"](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6511141/pdf/40168_2019_Article_687.pdf) by Rocafort et al. (2019) in *Microbiome*. The data includes 65 samples from HIV negative people, 98 samples from people chronically infected with HIV, and 148 samples from people who recently acquired HIV. The recently acquired HIV population were people who tested negative using a rapid antibody-based test and tested positive using a more expensive HIV test that directly detects the virus. 
 
 ### Details on microbiome sequencing data processiong
-For this project I used [HiMAP](https://www.biorxiv.org/content/10.1101/565572v1) to do these first processing steps. [HiMAP GitHub Repository](https://github.com/taolonglab/himap). 
+For this project I used [HiMAP](https://www.biorxiv.org/content/10.1101/565572v1) to do these first processing steps. [HiMAP GitHub Repository](https://github.com/taolonglab/himap). These initial steps include merging reads, removing PCR primers, trimming read-lengths, removing chimeras, denoising (using dada2), align sequences against the reference database (the HiMAP database) to obtain abundances. In HiMAP, these are called OSUs (operational strain unit) as opposed to OTUs (operational taxonomic units) to reflect the higher resolution of the HiMAP reference database.
 
 # Step 2. Normalization of compositional data across patients
-
+Normalization of compositional data between samples is an important step in microbiome compositional comparisons because the sequencing depth (the number of sequenced reads) differ between samples as well as the compositional variation. There are many types of normalization procedures for microbiome compositional data. For this project, I implemented `Total Sum Scaling`, `Cumulative Sum Scaling`, and `Centered-Log Ratio` to compare different normalization methods. I settled on using centered-log ratio (CLR) for its strength in removing compositional artifacts and its performance in my classification. For CLR normzalization, I used a pseudocount of 0.5 for all OSUs with no reads.
 
 # Step 3. Feature selection
-
+Because the microbiome is diverse and consists of hundreds to thousands of different organisms, microbiome compositional data has many features (OSUs) and is sparse. To deal with this, I tried several ways to reduce the number of features (OSUs) and select those features that contribute to the variance in the samples. I used dimensionality reduction (in the form of `SVD`) as one method. I also selected the OSUs with the highest Z-score (difference in mean abundance between labels over the standard deviation in abundance), as well as the OSUs that correlate the most with the labels. From these, I chose `SVD` to reduce the number of features to 20, which captured ~46% of the total variance in the samples, and was the least biased way to select the features.
 
 # Step 4. Implementation of classifier
-
+I then used Logistic Regression to classify samples
 
 
 
