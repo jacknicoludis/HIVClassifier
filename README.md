@@ -17,7 +17,9 @@ Project files can be found in the **project_files** directory. To run the Classi
 
 HIV/AIDS is a global health concern with ~1 million people dying of the infection and its complications every year. A pain point for the eradication of the disease is diagnosing it early enough to prevent transmission to new people. About 25% of people with HIV do not know they have it. The most common (and inexpensive) test for HIV is a antibody-based test, which can detect the disease 4-6 weeks after infection. However, at this point, the person is already infectious. Thus, my project focused on determining new ways of detecting HIV early: microbiome data.
 
-![HIV testing timeline](project_overview_file/HIV-acquisition_timeline.png)
+<p align="center">
+  <img src="/project_overview_files/HIV-acquisition_timeline.png" width="40%">
+</p>
 
 ### Microbiome Profiling
 The microbiome is the collection of microbes (bacteria, fungi, viruses) in and on our body and the composition of different microbes is dynamic and responds to environmental changes. For example, someone's diet, lifestyle or a disease they have can impact the types of microbes and the composition.
