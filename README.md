@@ -36,11 +36,19 @@ For this project I used [HiMAP](https://www.biorxiv.org/content/10.1101/565572v1
 # Step 2. Normalization of compositional data across patients
 Normalization of compositional data between samples is an important step in microbiome compositional comparisons because the sequencing depth (the number of sequenced reads) differ between samples as well as the compositional variation. There are many types of normalization procedures for microbiome compositional data. For this project, I implemented `Total Sum Scaling`, `Cumulative Sum Scaling`, and `Centered-Log Ratio` to compare different normalization methods. I settled on using centered-log ratio (CLR) for its strength in removing compositional artifacts and its performance in my classification. For CLR normzalization, I used a pseudocount of 0.5 for all OSUs with no reads.
 
+<p align="center">
+  <img src="https://github.com/jacknicoludis/HIVClassifier/blob/master/project_overview_files/normalization.png?raw=true" />
+</p>
+
 # Step 3. Feature selection
 Because the microbiome is diverse and consists of hundreds to thousands of different organisms, microbiome compositional data has many features (OSUs) and is sparse. To deal with this, I tried several ways to reduce the number of features (OSUs) and select those features that contribute to the variance in the samples. I used dimensionality reduction (in the form of `SVD`) as one method. I also selected the OSUs with the highest Z-score (difference in mean abundance between labels over the standard deviation in abundance), as well as the OSUs that correlate the most with the labels. From these, I chose `SVD` to reduce the number of features to 20, which captured ~46% of the total variance in the samples, and was the least biased way to select the features.
 
+<p align="center">
+  <img src="https://github.com/jacknicoludis/HIVClassifier/blob/master/project_overview_files/SVD.png?raw=true" />
+</p>
+
 # Step 4. Implementation of classifier
-I then used Logistic Regression to classify samples
+I then used Logistic Regression to classify samples. I made two classifiers: one that classified recently HIV-infected people from HIV negative people and one that classified HIV positive and HIV negative people. I chose a binary classification approach to simulate a clinical environment where people would be tested if they suspected they had been infected recently (and present to a clinic with flu-like symptoms) versus were not infected (as this is the situation under which the data was collected). In add
 
 
 
