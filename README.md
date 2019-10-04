@@ -69,7 +69,14 @@ I used learning curves to determine whether their was bias in the data and wheth
 
 In the case of recently HIV infected people, the models have converged, indicate the poor model performance is likely due to a biological property of the samples. This makes sense since people who have recently been infected with HIV likely have not experienced large changes in immune system function and have not started antiretroviral treatment (ARTs), both of which are known to alter the structure of the microbiome.
 
+<p align="center">
+  <img src="https://github.com/jacknicoludis/HIVClassifier/blob/master/project_overview_files/LC_RHI_NEG.png?raw=true" />
+</p>
 
+# Project in context
+Microbiome sequencing is becoming more common in clinical settings and an increasing number of studies have found links to a variety of disease and environmental factors and the structure of the microbiome. As sequencing costs continue to decrease, we can only expect that microbiome sequencing will be a new diagnostic tool and we need to explore how different diseases might impact the structure of the microbiome. In this project I used a dataset of recently-HIV infected individuals to determine whether early HIV infection could be detected by microbiome data. I found that I could predict early HIV infection with better than even odds. My classification performed better at distinguishing HIV negative and chronically HIV postive people. 
+
+While performance of the model was moderate, there are more than 150K people in the US that don't know they have HIV. Most of these people have likely had HIV for a long time but do not seek out HIV testing due to stigma against HIV and lack of medical access. If microbiome diagnostics become more common (say, as common as at-home ancestry tests of which 8% of the US population has taken part), then 7-8K of the 150K who don't know they are HIV positive would find out their HIV positive status.
 
 
 ### Project Files
