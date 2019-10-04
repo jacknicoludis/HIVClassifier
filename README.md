@@ -43,12 +43,32 @@ Normalization of compositional data between samples is an important step in micr
 # Step 3. Feature selection
 Because the microbiome is diverse and consists of hundreds to thousands of different organisms, microbiome compositional data has many features (OSUs) and is sparse. To deal with this, I tried several ways to reduce the number of features (OSUs) and select those features that contribute to the variance in the samples. I used dimensionality reduction (in the form of `SVD`) as one method. I also selected the OSUs with the highest Z-score (difference in mean abundance between labels over the standard deviation in abundance), as well as the OSUs that correlate the most with the labels. From these, I chose `SVD` to reduce the number of features to 20, which captured ~46% of the total variance in the samples, and was the least biased way to select the features.
 
+As an additional feature, I allow for the reduction of features by combining similar taxonomic groups. OSUs can be combined based on their taxonomy to a certain level (genus, family, order, etc.). This type of merging OSUs is common in analysis of microbiome data and genus-level compositions are frequently used.
+
 <p align="center">
   <img src="https://github.com/jacknicoludis/HIVClassifier/blob/master/project_overview_files/SVD.png?raw=true" />
 </p>
 
 # Step 4. Implementation of classifier
-I then used Logistic Regression to classify samples. I made two classifiers: one that classified recently HIV-infected people from HIV negative people and one that classified HIV positive and HIV negative people. I chose a binary classification approach to simulate a clinical environment where people would be tested if they suspected they had been infected recently (and present to a clinic with flu-like symptoms) versus were not infected (as this is the situation under which the data was collected). In add
+I then used `Logistic Regression` to classify samples. I made two classifiers: one that classified recently HIV-infected people from HIV negative people and one that classified HIV positive and HIV negative people. I chose a binary classification approach to simulate a clinical environment where people would be tested if they suspected they had been infected recently (and present to a clinic with flu-like symptoms) versus were not infected (as this is the situation under which the data was collected). Because a false negative diagnosis is worse than a false positive in a clinical context of HIV treatment (often secondary tests are done if someone is found to be HIV positive) I optimized the recall of my classifier.
+
+# Results
+For my classifier distinguishing HIV negative and recently infected people, I obtained a recall of 65%, a precision of 66% and an F1 score of 65%.
+<p align="center">
+  <img src="https://github.com/jacknicoludis/HIVClassifier/blob/master/project_overview_files/LG_CHI_NEG.png?raw=true" />
+</p>
+For my classifier distinguishing HIV negative and chronic HIV positive people, I obtained a recall of 69%, a precision of 70% and an F1 score of 69%. This classification is on par with a classification in the [literature](https://www.ebiomedicine.com/article/S2352-3964(16)30028-7/fulltext).
+<p align="center">
+  <img src="https://github.com/jacknicoludis/HIVClassifier/blob/master/project_overview_files/LG_RHI_NEG.png?raw=true" />
+</p>
+I used learning curves to determine whether their was bias in the data and whether more samples would improve the model. In the case of chronically HIV postive vs. HIV negative people, the training and cross-validation sets are starting to converge, but more samples may improve model performance.
+
+<p align="center">
+  <img src="https://github.com/jacknicoludis/HIVClassifier/blob/master/project_overview_files/LC_CHI_NEG.png?raw=true" />
+</p>
+
+In the case of recently HIV infected people, the models have converged, indicate the poor model performance is likely due to a biological property of the samples. This makes sense since people who have recently been infected with HIV likely have not experienced large changes in immune system function and have not started antiretroviral treatment (ARTs), both of which are known to alter the structure of the microbiome.
+
 
 
 
