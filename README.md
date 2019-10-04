@@ -1,4 +1,9 @@
+[**RESUME**](project_overview_files/resume.md)  *  [**LINKEDIN**](https://www.linkedin.com/in/john-nicoludis/)  *  [**GOOGLE SCHOLAR**](https://scholar.google.com/citations?user=5Gbuh4kAAAAJ&hl=en)
+
 # HIVClassifier
+
+Project by Jack Nicoludis
+
 Insight Health Data Science Project on predicting HIV infection state from microbiome data.
 
 The goal of this project was to use microbiome data to predict HIV infection state using machine learning classifiers. 
