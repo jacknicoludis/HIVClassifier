@@ -1,12 +1,11 @@
 # John Nicoludis
 
-San Francisco, CA - jacknicoludis@gmail.com - linkedin.com/in/john-nicoludis
+San Francisco, CA - jacknicoludis@gmail.com 
 
 ## Education 
-|                        |                                    |      |
-| ---------------------- |:----------------------------------:| ----:|
-| **Harvard University** | PhD Chemistry and Chemical Biology | 2018 |
-| **Swarthmore College** | BA Biochemistry                    | 2012 |
+**Harvard University**,   PhD, Chemistry and Chemical Biology,   2018 
+
+**Swarthmore College**,   BA, Biochemistry,                      2012 
 
 ## Skills
 ### Languages
